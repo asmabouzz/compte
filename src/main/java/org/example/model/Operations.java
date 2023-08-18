@@ -8,11 +8,11 @@ public class Operations {
     private Statut statut;
 
 
-    public Operations(int numero, double montant, Statut statut) {
-        this.numero = numero;
+    public Operations(double montant, Statut statut) {
         this.montant = montant;
         this.statut = statut;
     }
+
 
 
     public int getNumero() {

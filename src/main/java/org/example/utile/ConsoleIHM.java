@@ -1,6 +1,9 @@
 package org.example.utile;
 
+import org.example.model.Operations;
 import org.example.service.ClientService;
+import org.example.service.CompteBancaireService;
+import org.example.service.OperationsService;
 
 import java.util.Scanner;
 
@@ -8,6 +11,8 @@ public class ConsoleIHM {
 
 
     private static ClientService clientService = new ClientService();
+    private static CompteBancaireService compteBancaireService = new CompteBancaireService();
+    private static OperationsService operationsService = new OperationsService();
     private static Scanner scanner = new Scanner(System.in);
 
     public static void start() {
@@ -28,7 +33,7 @@ public class ConsoleIHM {
                     creeClient();
                     break;
                 case 2:
-                    //depotArgent();
+                    depotArgent();
                     break;
                 case 3:
                     //retraitArgent();
@@ -47,6 +52,7 @@ public class ConsoleIHM {
     }
 
     private static void creeClient() {
+        System.out.println("creation de compte : ");
         System.out.print("Nom  : ");
         String nom = scanner.nextLine();
         System.out.print("Prenom : ");
@@ -55,6 +61,14 @@ public class ConsoleIHM {
         String numTel = scanner.nextLine();
 
         clientService.creeClient(nom,prenom,numTel);
+    }
+
+    private  static void depotArgent(){
+        System.out.println("quelle montant souhaiter vous deposer ? ");
+        String montant = scanner.nextLine();
+
+
+
     }
 
 }

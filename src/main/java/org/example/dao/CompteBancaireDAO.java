@@ -34,8 +34,19 @@ public class CompteBancaireDAO extends BaseDAO<CompteBancaire> {
     }
 
     @Override
-    public boolean update(CompteBancaire element) throws SQLException {
-        return false;
+    public boolean update(CompteBancaire compte) throws SQLException {
+
+        equest = "update compteBancaire set solde=? where id=?";
+        statement = _connection.prepareStatement(request);
+        statement.setDouble(1,compte.getSolde());
+        statement.setInt(2,compte.getId());
+        int nbRows=statement.executeUpdate();
+        return nbRows==1;
+
+
+
+
+
     }
 
     @Override
